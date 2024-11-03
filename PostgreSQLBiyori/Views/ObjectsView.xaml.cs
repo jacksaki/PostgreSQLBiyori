@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PostgreSQLBiyori.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +20,11 @@ namespace PostgreSQLBiyori.Views
     /// <summary>
     /// ObjectsView.xaml の相互作用ロジック
     /// </summary>
-    public partial class ObjectsView : Page
+    public partial class ObjectsView : UserControl
     {
         public ObjectsView()
         {
-            this.DataContext = new ViewModels.ObjectsViewModel();
+            this.DataContext = App.ServiceProvider.GetService<ObjectsViewModel>();
             InitializeComponent();
         }
     }

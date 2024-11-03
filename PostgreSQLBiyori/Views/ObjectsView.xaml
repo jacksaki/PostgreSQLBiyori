@@ -1,4 +1,4 @@
-﻿<Page x:Class="PostgreSQLBiyori.Views.ObjectsView"
+﻿<UserControl x:Class="PostgreSQLBiyori.Views.ObjectsView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:ui="http://schemas.modernwpf.com/2019"
@@ -8,7 +8,7 @@
       xmlns:vm="clr-namespace:PostgreSQLBiyori.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ObjectsView">
+      >
     <Grid>
         <TabControl Style="{StaticResource TabControlPivotStyle}">
             <TabItem Header="TABLES">
@@ -96,4 +96,4 @@
             <TabItem Header="CONSTRAINTS"/>
         </TabControl>
     </Grid>
-</Page>
+</UserControl>

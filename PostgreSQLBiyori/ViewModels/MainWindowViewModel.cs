@@ -5,13 +5,8 @@ namespace PostgreSQLBiyori.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public AppConfig Config { get; }
-        public MainWindowViewModel(AppConfig config) : base()
+        public MainWindowViewModel() : base()
         {
-            this.Config = config;
-            this.HomeBoxViewModel = new HomeBoxViewModel(this);
         }
-
-        public HomeBoxViewModel HomeBoxViewModel { get; }
     }
 }

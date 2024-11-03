@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PostgreSQLBiyori.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,10 +20,11 @@ namespace PostgreSQLBiyori.Views
     /// <summary>
     /// ExplainPlanView.xaml の相互作用ロジック
     /// </summary>
-    public partial class ExplainPlanView : Page
+    public partial class ExplainPlanView : UserControl
     {
         public ExplainPlanView()
         {
+            this.DataContext = App.ServiceProvider.GetService<ExplainPlanViewModel>();
             InitializeComponent();
         }
     }

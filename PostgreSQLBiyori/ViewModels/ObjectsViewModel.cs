@@ -12,6 +12,7 @@ namespace PostgreSQLBiyori.ViewModels
 {
     public class ObjectsViewModel: ViewModelBase
     {
+        private readonly AppConfig _config;
         public ObservableCollection<PgTable> Tables { get; } 
         public List<PgSchema> Schemata { get; }
 
@@ -19,13 +20,14 @@ namespace PostgreSQLBiyori.ViewModels
         public BindableReactiveProperty<string> QueryString { get; }
         public BindableReactiveProperty<PgSchema> SelectedSchema { get; }
         public BindableReactiveProperty<PgTable> SelectedTable { get; }
-        public ObjectsViewModel()
+        public ObjectsViewModel(AppConfig config)
             : base()
         {
+            _config = config;
             this.Schemata = new List<PgSchema>(PgSchema.GetAll());
             RaisePropertyChanged(nameof(Schemata));
             this.Tables = new ObservableCollection<PgTable>();
-            this.QueryString = new BindableReactiveProperty<string>(string.Empty);
+            this.QueryString = new BindableReactiveProperty<string>(_config.ConnectionString);
             this.SelectedSchema = new BindableReactiveProperty<PgSchema>();
             this.SelectedSchema.SubscribeAwait(async (x, ct) =>
             {
