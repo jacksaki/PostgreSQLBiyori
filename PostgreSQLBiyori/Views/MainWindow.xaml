@@ -1,0 +1,53 @@
+﻿<Window x:Class="PostgreSQLBiyori.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        ResizeMode="CanResizeWithGrip"
+        xmlns:v="clr-namespace:PostgreSQLBiyori.Views"
+        xmlns:vm="clr-namespace:PostgreSQLBiyori.ViewModels"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        mc:Ignorable="d"
+        Title="">
+    <Window.Resources>
+        <Style TargetType="ui:SimpleStackPanel">
+            <Setter Property="Spacing" Value="6" />
+        </Style>
+    </Window.Resources>
+
+    <ui:NavigationView
+        x:Name="NaviView"
+        Header="★ヘッダー★"
+        IsBackButtonVisible="Collapsed"
+        IsSettingsVisible="False"
+        IsTitleBarAutoPaddingEnabled="False"
+        PaneDisplayMode="Auto"
+        PaneTitle=""
+        SelectionChanged="NaviView_SelectionChanged">
+        <ui:NavigationView.MenuItems>
+            <ui:NavigationViewItem
+                Content="TABLE"
+                Icon="Document"
+                IsSelected="True"
+                Tag="{x:Static v:ViewTypes.Objects}" />
+            <ui:NavigationViewItem
+                Content="Plan"
+                Icon="Flag"
+                Tag="{x:Static v:ViewTypes.ExplainPlan}" />
+            <ui:NavigationViewItem
+                Content="EFCore"
+                Icon="Library"
+                Tag="{x:Static v:ViewTypes.EFCore}" />
+            <ui:NavigationViewItem
+                Content="Settings"
+                Icon="Setting"
+                Tag="{x:Static v:ViewTypes.Settings}" />
+        </ui:NavigationView.MenuItems>
+
+        <ScrollViewer Margin="0,0,0,12">
+            <ui:Frame x:Name="ContentFrame" Padding="12,0,12,12" />
+        </ScrollViewer>
+    </ui:NavigationView>
+</Window>
